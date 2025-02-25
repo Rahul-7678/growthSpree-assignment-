@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Section</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .nav-buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login {
+            background: #f0f0f0;
+        }
+
+        .request-demo {
+            background: #ff7f50;
+            color: #fff;
+        }
+
+        .hero {
+            padding: 50px 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+        }
+
+        .highlight {
+            color: #ff7f50;
+        }
+
+        .highlight-alt {
+            font-weight: bold;
+            color: #ff7f50;
+        }
+        .video-section {
+            text-align: center;
+            padding: 20px;
+            background: #000;
+            color: #fff;
+        }
+        
+        .video-section video {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        .logo-section {
+            text-align: center;
+            padding: 20px;
+            background: #FF7849;
+            color: #fff;
+        }
+
+        .logo-grid {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .metrics-section {
+            text-align: center;
+            padding: 50px 20px;
+            background: #fff5f0;
+        }
+
+        .metrics {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #FFE0D4, #FFD1C1);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .conversion-section {
+            text-align: center;
+            padding: 50px 20px;
+            background: #F5F9FF;
+        }
+
+        .conversion-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .conversion-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .testimonial-section {
+            background: #FF7F50;
+            color: #fff;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .testimonial-slider {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 20px 0;
+        }
+
+        .testimonial {
+            background: #FF4500;
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 300px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        .media-section {
+            text-align: center;
+            padding: 50px 20px;
+            background: #FFF;
+        }
+        .media-section video {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        .video-brand-section {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #FF7F50, #FFA07A);
+            color: #fff;
+        }
+        .customer-spotlight-section {
+            text-align: center;
+            padding: 50px 20px;
+            background: #FFF;
+        }
+        .media-features-section {
+            text-align: center;
+            padding: 50px 20px;
+            background: #FFF;
+        }
+        .media-library-section {
+    text-align: center;
+    padding: 50px 20px;
+    background: #FFFAF5;
+}
+
+.media-library-section img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faq-section {
+            padding: 50px 20px;
+            background-color: #fff;
+            text-align: left;
+        }
+
+        .faq-section h2 {
+            color: #f76b1c;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .faq-section h3 {
+            color: #333;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .faq-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .faq-section li {
+            margin: 15px 0;
+            font-size: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+
+        .faq-section li::after {
+            content: '+';
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #f76b1c;
+            cursor: pointer;
+        }
+        .footer {
+            background-color: #f9f9f9;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: left;
+        }
+
+        .footer h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer ul li {
+            margin: 10px 0;
+        }
+
+        .footer ul li a {
+            text-decoration: none;
+            color: #666;
+        }
+
+        .footer ul li a:hover {
+            color: #f76b1c;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .contact-section {
+            text-align: center;
+            padding: 50px 20px;
+            background: #F9F9F9;
+        }
+
+        .contact-section form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-section input, .contact-section textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-section button {
+            padding: 10px;
+            background: #FF7F50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .contact-section button:hover {
+            background: #FF4500;
+        }
+        @media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .hero {
+        padding: 30px 10px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+}
+@media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            .navbar .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: #333;
+                padding: 10px;
+                width: 200px;
+            }
+            .navbar .nav-links.show {
+                display: flex;
+            }
+        }
+
+/* Mobile */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    header {
+        text-align: center;
+    }
+
+    nav ul {
+        padding: 0;
+    }
+}
+body {
+        font-family: Arial, sans-serif;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .dark-mode {
+        background-color: #121212;
+        color: #ffffff;
+    }
+
+    .dark-mode * {
+        background-color: inherit;
+        color: inherit;
+    }
+
+    .navbar a, .navbar button {
+        transition: color 0.3s, background-color 0.3s;
+    }
+
+    .dark-mode .navbar a {
+        color: #bb86fc;
+    }
+
+    .dark-mode .navbar button {
+        background-color: #3700b3;
+        color: #ffffff;
+    }   
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="menu-icon">☰</div>
+        <ul class="nav-links">
+            <li><a href="#">Product</a></li>
+            <li><a href="#">Customers</a></li>
+            <li><a href="#">Resources</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Plans</a></li>
+
+        </ul>
+        
+        <div class="nav-buttons">
+            <button class="login">Login</button>
+            <button class="request-demo">Request a Demo</button>
+            <div class="dark-mode-toggle" style="margin-top: 10px;">
+                <button class="toggle-btn" style="background-color: #ff7f50; color: white;" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+            </div>
+    </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Unlock video’s full potential; <br><span class="highlight">half of marketers</span> haven’t yet!</h1>
+        <ul>
+            <p> <li id="word"> <span class="highlight-alt">Media+</span>Engage 🥳</li></p>
+        </ul>
+        <p>Netflix-style video discovery for your prospects that turns viewers into customers</p>
+        <button class="request-demo">Request a Demo</button>
+    </section>
+    
+    <section class="video-section">
+        <h2>AI in Marketing: Revolutionizing Customer Engagement</h2>
+        <p>Discover how AI is transforming the way businesses interact with customers, offering personalized experiences at scale.</p>
+        <video controls>
+            <source src="video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+    <section class="logo-section">
+        <h2>Perfected by</h2>
+        <div class="logo-grid">
+            <img src="gen-next.png" alt="Gen Next">
+            <img src="agora.png" alt="Agora">
+            <img src="azuga.png" alt="Azuga">
+            <img src="ignition.png" alt="Ignition">
+            <img src="eqs.png" alt="EQS">
+        </div>
+    </section>
+    <section class="metrics-section">
+        <h2>Seamless Video Management</h2>
+        <p>Transform how you engage with your audience using Media+</p>
+        <div class="metrics">
+            <div class="metric-card">
+                <h3>2.5X</h3>
+                <p>Lead Generation</p>
+                <span>Boost watch time and drive more leads</span>
+            </div>
+            <div class="metric-card">
+                <h3>3X</h3>
+                <p>Publish Content Faster with AI</p>
+                <span>Tailor made to get more views</span>
+            </div>
+            <div class="metric-card">
+                <h3>30min</h3>
+                <p>Setup</p>
+                <span>Set up your video CMS in less than 30 minutes</span>
+            </div>
+        </div>
+        <button class="demo">Request a Demo</button>
+    </section>
+    <section class="conversion-section">
+        <h2>Why choose Media+?</h2>
+        <p>Media+ turns video engagement into customer conversions</p>
+        <div class="conversion-grid">
+            <div class="conversion-card">
+                <h3>Curate your video media collection with an AI powered library</h3>
+            </div>
+            <div class="conversion-card active">
+                <h3>Build, Brand & Publish your Media+</h3>
+                <p>Publish your on-demand media faster than ever using Media+. Add your custom branding and host all your media on your website or any other custom URL of your choice.</p>
+            </div>
+            <div class="conversion-card">
+                <h3>Gate your media, capture leads & connect your CRM - it’s easy</h3>
+            </div>
+            <div class="conversion-card">
+                <h3>Track your views - with detailed analytics.</h3>
+            </div>
+        </div>
+    </section>
+    <section class="testimonial-section">
+        <h2>Take it from a Customer</h2>
+        <div class="testimonial-slider">
+            <div class="testimonial">
+                <p>“Beautifully showcases our best videos...”</p>
+                <p>Media+ has created our own 'UNI-FLIX'. It’s exactly the OTT platform I’ve been looking for. It beautifully showcases relevant videos for students, sorted by courses, locations, and more — all in a matter of minutes.</p>
+                <h3>Girish C. Ballolla</h3>
+                <span>Founder & CEO, Gen Next Education, Inc.</span>
+            </div>
+            <div class="testimonial">
+                <p>“Super simple to set up and use!”</p>
+                <p>We were able to launch our video library in less than an hour. The platform is intuitive, and the support team is always available to help.</p>
+                <h3>Jane Doe</h3>
+                <span>CMO, Agora</span>
+            </div>
+            <div class="testimonial">
+                <p>“Helped us scale our video marketing fast”</p>
+                <p>Media+ made it easy to repurpose webinars and product demos, turning them into lead magnets. Our engagement and conversions shot up!</p>
+                <h3>John Smith</h3>
+                <span>Marketing Director, Azuga</span>
+            </div>
+            <div class="testimonial">
+                <p>“A game-changer for customer engagement”</p>
+                <p>With Media+, we can deliver tailored video content to different audience segments. It’s a powerful tool that helps us stay ahead in a competitive market.</p>
+                <h3>Emily White</h3>
+                <span>Head of Digital, Ignition</span>
+            </div>
+        </div>
+    </section>
+    <section class="media-section">
+        <h2>Create an OTT platform for your media</h2>
+        <p>Let your videos do more than just sit on your website. Curate your video repository in a few easy steps and let it drive organic views and generate leads.</p>
+        <img src="Screenshot-2025-02-24-204341.png" alt="Media Library Screenshot" style="width: 100%; border-radius: 10px;">
+        <video controls>
+            <source src="video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+    <section class="video-brand-section">
+        <h2>Your Videos, Your Brand, Your Website</h2>
+        <img src="Screenshot-2025-02-24-204851.png" alt="Your Videos, Your Brand" style="width: 100%; border-radius: 10px;">
+    </section>
+    <section class="customer-spotlight-section">
+        <h2>Media+ in action: Customer Spotlight</h2>
+        <p>See how customers use Media+ to create branded media sites that captivate and convert.</p>
+        <img src="image1.png" alt="Customer Spotlight" style="width: 100%; border-radius: 10px;">
+    </section>
+    <section class="media-features-section">
+        <h2>Explore Media+ Features</h2>
+        <img src="image2.png" alt="Media+ Features" style="width: 100%; border-radius: 10px;">
+    </section>
+    <section class="media-library-section">
+        <h2>Get your media library up and running</h2>
+        <img src="Screenshot-2025-02-24-210701.png" alt="Get Your Media Library" style="width: 100%; border-radius: 10px;">
+    </section>
+    <section class="faq-section">
+        <h2>Our top-list of commonly asked questions</h2>
+        <h3>FAQs</h3>
+        <ul>
+            <li>1. How is Media+ beneficial for Marketers?</li>
+            <li>2. How does Media+ improve user retention, engagement & help in generating more leads?</li>
+            <li>3. How does Media+ result in better brand visibility?</li>
+            <li>4. How does Media+ simplify video content management?</li>
+            <li>5. How does Media+ use AI to improve content discovery?</li>
+            <li>6. What kind of analytics does Media+ provide?</li>
+            <li>7. Can Media+ integrate with my existing MAP tools like Hubspot?</li>
+            <li>8. How many videos can I host in one Media+ site?</li>
+        </ul>
+    </section>
+    <footer class="footer">
+        <div>
+            <h4>Product</h4>
+            <ul>
+                <li><a href="#">Webinar+</a></li>
+                <li><a href="#">Media+</a></li>
+                <li><a href="#">Generate Interest</a></li>
+                <li><a href="#">Capture Interest</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Who are you</h4>
+            <ul>
+                <li><a href="#">Demand Gen Marketer</a></li>
+                <li><a href="#">Content Marketer</a></li>
+                <li><a href="#">Event Marketer</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Resources</h4>
+            <ul>
+                <li><a href="#">Our Webinars</a></li>
+                <li><a href="#">Help!</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Contact us</h4>
+            <p>to see what Webinar+ can do for your business</p>
+            <input type="email" placeholder="Enter your email">
+            <button>Submit</button>
+        </div>
+    </footer>
+
+    <div class="footer-bottom">
+        © 2022 Hubilo. All rights reserved | Terms of Use | Privacy Policy | Security and Compliance | Cookie Policy
+    </div>
+
+    <section class="contact-section">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or want to learn more about Media+, feel free to reach out!</p>
+        <form action="#" method="post">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    <script>
+        const words = ["Engage 🥳", "Optimize 😎", "$$$ 🤑"];
+        let index = 0;
+        
+        function rotateText() {
+            index = (index + 1) % words.length;
+            document.getElementById("word").innerText = words[index];
+        }
+        
+        setInterval(rotateText, 2000);
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('show');
+        }
+        const menuIcon = document.querySelector('.menu-icon');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuIcon?.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+    });
+
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+    }
+    </script>
+     
+</body>
+</html>
