@@ -94,17 +94,28 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
         .logo-section {
-            text-align: center;
-            padding: 20px;
-            background: #FF7849;
-            color: #fff;
-        }
+        text-align: center;
+        padding: 20px;
+        background: #FF7849;
+        color: #fff;
+    }
 
+    .logo-grid {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+    }
+    .logo-grid img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    @media (max-width: 768px) {
         .logo-grid {
-            display: flex;
-            justify-content: space-around;
-            padding: 20px;
+            flex-direction: column;
+            align-items: center;
         }
+    }
         .metrics-section {
             text-align: center;
             padding: 50px 20px;
@@ -145,27 +156,76 @@
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-        .testimonial-section {
-            background: #FF7F50;
-            color: #fff;
-            text-align: center;
-            padding: 50px 20px;
-        }
+        .testimonials-section {
+        text-align: center;
+        padding: 20px;
+    }
 
+    .testimonials-section {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .testimonial-slider {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .slides {
+        display: flex;
+        width: 100%;
+        transition: transform 0.3s ease;
+    }
+
+    .slide {
+        flex: 0 0 100%;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .slide img {
+        max-width: 100%;
+        max-height: 80vh;
+        object-fit: contain;
+    }
+
+    .prev, .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+    @media (max-width: 768px) {
         .testimonial-slider {
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            padding: 20px 0;
+            padding: 10px;
         }
 
-        .testimonial {
-            background: #FF4500;
-            padding: 20px;
-            border-radius: 10px;
-            min-width: 300px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        .prev, .next {
+            padding: 5px;
         }
+    }
+
+    @media (max-width: 480px) {
+        .slide img {
+            max-height: 60vh;
+        }
+    }
         .media-section {
             text-align: center;
             padding: 50px 20px;
@@ -478,11 +538,7 @@ body {
     <section class="logo-section">
         <h2>Perfected by</h2>
         <div class="logo-grid">
-            <img src="gen-next.png" alt="Gen Next">
-            <img src="agora.png" alt="Agora">
-            <img src="azuga.png" alt="Azuga">
-            <img src="ignition.png" alt="Ignition">
-            <img src="eqs.png" alt="EQS">
+            <img src="perfected.png" alt="Updated Logo">
         </div>
     </section>
     <section class="metrics-section">
@@ -526,33 +582,17 @@ body {
             </div>
         </div>
     </section>
-    <section class="testimonial-section">
-        <h2>Take it from a Customer</h2>
+    <section class="testimonials-section">
+        <h2>Testimonials</h2>
         <div class="testimonial-slider">
-            <div class="testimonial">
-                <p>“Beautifully showcases our best videos...”</p>
-                <p>Media+ has created our own 'UNI-FLIX'. It’s exactly the OTT platform I’ve been looking for. It beautifully showcases relevant videos for students, sorted by courses, locations, and more — all in a matter of minutes.</p>
-                <h3>Girish C. Ballolla</h3>
-                <span>Founder & CEO, Gen Next Education, Inc.</span>
+            <div class="slides">
+                <div class="slide"><img src="Property 1=01.png" alt="Testimonial 1"></div>
+                <div class="slide"><img src="Property 1=02.png" alt="Testimonial 2"></div>
+                <div class="slide"><img src="Property 1=03.png" alt="Testimonial 3"></div>
+                <div class="slide"><img src="Property 1=04.png" alt="Testimonial 4"></div>
             </div>
-            <div class="testimonial">
-                <p>“Super simple to set up and use!”</p>
-                <p>We were able to launch our video library in less than an hour. The platform is intuitive, and the support team is always available to help.</p>
-                <h3>Jane Doe</h3>
-                <span>CMO, Agora</span>
-            </div>
-            <div class="testimonial">
-                <p>“Helped us scale our video marketing fast”</p>
-                <p>Media+ made it easy to repurpose webinars and product demos, turning them into lead magnets. Our engagement and conversions shot up!</p>
-                <h3>John Smith</h3>
-                <span>Marketing Director, Azuga</span>
-            </div>
-            <div class="testimonial">
-                <p>“A game-changer for customer engagement”</p>
-                <p>With Media+, we can deliver tailored video content to different audience segments. It’s a powerful tool that helps us stay ahead in a competitive market.</p>
-                <h3>Emily White</h3>
-                <span>Head of Digital, Ignition</span>
-            </div>
+            <button class="prev" onclick="showPrevSlide()">&#10094;</button>
+            <button class="next" onclick="showNextSlide()">&#10095;</button>
         </div>
     </section>
     <section class="media-section">
@@ -660,6 +700,32 @@ body {
 
     function toggleDarkMode() {
         document.body.classList.toggle('dark-mode');
+    }
+
+    const slidesContainer = document.querySelector('.slides');
+    const slides = document.querySelectorAll('.slide');
+    let currentIndex = 0;
+
+    function showNextSlide() {
+        if (currentIndex < slides.length - 1) {
+            currentIndex++;
+        } else {
+            currentIndex = 0;
+        }
+        updateSlidePosition();
+    }
+
+    function showPrevSlide() {
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = slides.length - 1;
+        }
+        updateSlidePosition();
+    }
+
+    function updateSlidePosition() {
+        slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
     </script>
      
